@@ -8,6 +8,7 @@ env:
 phases:
   pre_build:
     commands:
+      - npm i https://github.com/Qix-/node-error-ex
       - npm install
       - npm install jest-sonarcloud-reporter --save-dev
       - npm install gulp-cli -g
