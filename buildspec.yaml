@@ -10,12 +10,13 @@ phases:
     commands:
       - npm install
       - npm install gulp-cli -g
+      - npm install jest -g
       - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
       - unzip ./sonar-scanner-cli-3.3.0.1492-linux.zip
       - export PATH=$PATH:/sonar-scanner-3.3.0.1492-linux/bin/
   build:
     commands:
-      - CI=true npm test    
+      - CI=true npm test
       - npm sonar:sonar -Dsonar.login=$LOGIN -Dsonar.host.url=$HOST -Dsonar.projectKey=$Project -Dsonar.organization=$Organization
       - sleep 5
       - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=$Project >result.json
