@@ -8,15 +8,23 @@
     "@testing-library/user-event": "^7.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "dotenv": "^8.2.0",
+    "expect": "^25.1.0",
+    "jest-sonar-reporter": "^2.0.0",
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "cross-env CI=true react-scripts test --coverage",
-    "eject": "react-scripts eject",
-    "lint": "eslint src"
+    "test": "jest --coverage"
   },
+  "jest": {
+    "testEnvironment": "node",
+    "collectCoverage": true,
+    "testResultsProcessor": "jest-sonar-reporter",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/test/"
+      ]
+  }
   "eslintConfig": {
     "extends": "react-app"
   },
