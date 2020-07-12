@@ -11,7 +11,7 @@
     "react-scripts": "3.4.1",
     "dotenv": "^8.2.0",
     "expect": "^25.1.0",
-    "jest-sonar-reporter": "^2.0.0",
+    "jest-sonar-reporter": "^2.0.0"
   },
   "scripts": {
     "test": "jest --coverage"
