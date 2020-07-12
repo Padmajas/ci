@@ -6,9 +6,6 @@ env:
     Organization: prod/sonar:Organization
     Project: prod/sonar:Project
 phases:
-  install:
-    runtime-versions:
-      java: openjdk8
   pre_build:
     commands:
       - npm install
@@ -18,7 +15,7 @@ phases:
       - export PATH=$PATH:/sonar-scanner-3.3.0.1492-linux/bin/
   build:
     commands:
-      - npm test     
+      - CI=true npm test    
       - npm sonar:sonar -Dsonar.login=$LOGIN -Dsonar.host.url=$HOST -Dsonar.projectKey=$Project -Dsonar.organization=$Organization
       - sleep 5
       - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=$Project >result.json
